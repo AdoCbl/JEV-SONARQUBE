@@ -18,8 +18,10 @@ uv.lock
 # env / secrets
 .env
 .env.*
+secrets.toml
 !.env.example
 secrets.toml
+.checker_cache.json
 
 # Testing
 .pytest_cache/

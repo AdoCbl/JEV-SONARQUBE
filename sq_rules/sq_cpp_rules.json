@@ -1,0 +1,74 @@
+{
+  "rules": [
+    {
+      "key": "cpp:S1001",
+      "name": "Switch cases should end with an unconditional break statement",
+      "description": "A switch case that falls through to the next case without a break, return, throw, or continue statement is almost always a bug. Each case should end with one of those statements to prevent unintended fallthrough.",
+      "severity": "CRITICAL",
+      "type": "BUG"
+    },
+    {
+      "key": "cpp:S5509",
+      "name": "switch statements should have a default clause",
+      "description": "A switch statement without a default clause will silently ignore any value that does not match a listed case. Adding a default clause ensures all possible values are handled, preventing silent logic errors.",
+      "severity": "MAJOR",
+      "type": "BUG"
+    },
+    {
+      "key": "cpp:S2259",
+      "name": "Null pointers should not be dereferenced",
+      "description": "Dereferencing a pointer that is known to be null or that may be null leads to undefined behaviour and typically a crash. Always check a pointer for null before dereferencing it.",
+      "severity": "BLOCKER",
+      "type": "BUG"
+    },
+    {
+      "key": "cpp:S5025",
+      "name": "Memory allocated with new or new[] should be freed",
+      "description": "Every dynamic allocation made with new or new[] must be matched by a corresponding delete or delete[]. Failing to do so causes a memory leak. Prefer RAII types such as std::unique_ptr or std::vector instead of raw dynamic allocation.",
+      "severity": "CRITICAL",
+      "type": "BUG"
+    },
+    {
+      "key": "cpp:S2185",
+      "name": "Divisors should not be zero",
+      "description": "Division or modulo by zero is undefined behaviour in C++. Before performing integer division or modulo, the divisor must be verified to be non-zero.",
+      "severity": "BLOCKER",
+      "type": "BUG"
+    },
+    {
+      "key": "cpp:S836",
+      "name": "Variables should be declared close to where they are first used",
+      "description": "Declaring a variable far from the point where it is first used makes the code harder to read and reason about. Declare variables as close as possible to their first use to limit their scope and improve readability.",
+      "severity": "MINOR",
+      "type": "CODE_SMELL"
+    },
+    {
+      "key": "cpp:S5820",
+      "name": "Destructors of base classes with virtual methods should be virtual",
+      "description": "If a class has at least one virtual method and its destructor is not virtual, deleting a derived object through a base-class pointer causes undefined behaviour because the derived destructor is never called. Declare the destructor virtual in any class intended as a base class.",
+      "severity": "CRITICAL",
+      "type": "BUG"
+    },
+    {
+      "key": "cpp:S3432",
+      "name": "printf-style format functions should not be used",
+      "description": "The printf family of functions (printf, fprintf, sprintf, etc.) are not type-safe and can cause format-string vulnerabilities or undefined behaviour when the format specifier and argument types do not match. Use type-safe alternatives such as std::cout or std::format instead.",
+      "severity": "MAJOR",
+      "type": "VULNERABILITY"
+    },
+    {
+      "key": "cpp:S1128",
+      "name": "Unnecessary include directives should be removed",
+      "description": "Including a header that provides no symbol used in the translation unit increases compile time and creates unnecessary coupling between files. Remove any include directive whose symbols are not referenced in the file.",
+      "severity": "MINOR",
+      "type": "CODE_SMELL"
+    },
+    {
+      "key": "cpp:S3584",
+      "name": "Allocated memory should be freed before returning from a function",
+      "description": "A function that allocates memory with new or new[] and does not free it before every return path leaks memory. Either free the memory on all paths or use a smart pointer so the compiler enforces cleanup automatically.",
+      "severity": "CRITICAL",
+      "type": "BUG"
+    }
+  ]
+}
